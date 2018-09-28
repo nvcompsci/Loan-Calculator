@@ -182,10 +182,13 @@ public class LoanCalculator extends javax.swing.JFrame {
         interest /= 100; // interest = interest / 100
         years = Integer.parseInt( yearsBox.getText() );
         payment = Double.parseDouble( paymentBox.getText() );
-        
+        String message = "";
+        due = principal;
         for (int i = 0; i < years; i++) {
-            due = principal * ( interest + 1 );
-            output.setText("$"+due);
+            due = due * ( interest + 1 );
+            String formatted = String.format("%.2f",due);
+            message += "\n$"+formatted;
+            output.setText(message);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
